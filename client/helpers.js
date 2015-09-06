@@ -9,7 +9,7 @@ Template.registerHelper('createExcerpt', function(e, tlength) {
 });
 
 Template.registerHelper('prettyDate', function() {
-  return moment(this.date).format("dddd, MMMM Do YYYY");
+  return moment(this.date).format("MMMM Do, YYYY");
 });
 
 Template.registerHelper('iTunesLink', function() {

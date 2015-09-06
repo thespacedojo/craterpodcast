@@ -1,144 +1,86 @@
 <template name="home">
 
-  <!-- hero -->
-  <div class="podcast-hero">
+<!-- hero -->
+<div class="hero">
+  <div class="screen">
     <div class="container">
       <div class="row">
-        <div class="col-sm-12 col-md-12 col-lg-12 center-block">
-          <img src="/images/podcast_logo.png" class="pod-logo" alt="">
-          <h1 style="font-weight: 300;">A weekly podcast about Meteor.js.</h1>
-          <span class="tagline hidden-xs">Brought to you by <a
-              href="http://joshowens.me">Josh Owens</a>, <a href="https://medium.com/@benstr">Ben Strahan</a>, and <a href="http://meteorjs.club">Meteor Club</a>.</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- play bar -->
-  <div class="holder" style="height: 80px;">
-    <div class="podcast-play">
-      <div class="container">
-        <div class="row">
-            <div class="row episode-info">
-                {{#with featured}}
-                  <div class="podcast-player">
-                    <button class="pcast-speed">1x</button>
-                    <audio id="audio-player" style="width: 90%; float: left;" src="{{statelessDownload}}" controls>
-                      Your browser does not support the audio element.
-                    </audio>
-                  </div>
-                {{/with}}
+        <div class="col-sm-12 col-md-12 col-lg-12">
+          <div class="row">
+            <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2">
+              <img src="/images/crater-logo.png" class="pod-logo" alt="">
             </div>
+            <div class="col-xs-12 col-sm-9 col-md-10 col-lg-7">
+              <h1>Crater Podcast</h1>
+              <h2>A weekly podcast about Meteor.js.</h2>
 
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- clicked episode -->
-  <div class="featured-area">
-    {{> featuredEpisode featured}}
-  </div>
-
-
-  <div class="container episode-list">
-    <div class="row">
-      <div class="col-md-12 dark-bar two">
-        <div class="row">
-
-          <div class="col-xs-12 col-sm-3 col-md-4">
-            <span class="more">Latest Episodes</span>
-          </div>
-
-          <div class="col-xs-12 col-sm-9">
-            <!-- only shows up on tablets and smaller -->
-            <ul class="podcast-social visible-sm">
-              <li><a href="#"><i class="fa fa-apple fa-fw"></i>&nbsp;iTunes</a>  &nbsp;/&nbsp;</li>
-              <li><a href="#"><i class="fa fa-soundcloud fa-fw"></i>&nbsp; Soundcloud</a>  &nbsp;/&nbsp;</li>
-              <li><a href="#"><i class="fa fa-play-circle fa-fw"></i>&nbsp;Stitcher</a></li>
-            </ul>
+              <!-- TODO: correct links -->
+              <div class="links">
+                <a href="#" target="_blank"><i class="fa fa-twitter"></i></a> 
+                <a href="#" target="_blank"><i class="fa fa-rss"></i></a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
 
-  <div class="container">
-    <div class="row episode-archive-list">
-      <div class="col-md-5 hidden-sm hidden-xs absolute-background"></div>
-      <!-- episode loop -->
-      <div class="col-md-7 episode-archive">
-        {{#each episodes}}
+<!-- latest episode -->
+{{> featuredEpisode featured}}
+
+<!-- other recent episodes -->
+<div class="container main">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-8">
+      <h3 class="section-header">Recent Episodes</h3>
+      <!-- TODO: exclude the "featured" episode. right now it appears both places, 2x in a row. -->
+      {{#each episodes}}
+        <div class="single-episode">
           {{> episode}}
-        {{/each}}
+        </div>
+      {{/each}}
+
+      <div class="center-block load-more">
+        <!-- TODO: this button -->
+        <a href="#" class="btn btn-primary">Load More Episodes</a>
       </div>
+    </div>
 
-      <div class="col-md-5 hidden-sm hidden-xs">
-        <div class="row">
-          <div class="col-md-12 info-panel">
+    <div class="col-xs-12 col-sm-12 col-md-4 sidebar">
+      <h3 class="section-header">About the Podcast</h3>
+      <p>Crater Podcast is a weekly round-table discussion about all things Meteor. Join hosts Josh Owens and Ben Strahan as they speak with guests from around the community. <a href="http://meteorjs.club">Click here</a> to learn more about and to join Meteor Club.</p>
 
-            <!-- links out -->
-            <h4 style="margin: 20px 0 0 0;">Around the Web</h4>
-            <div class="row">
-              <div class="col-md-6">
-                <ul class="where-to-listen">
-                  <a href="https://itunes.apple.com/us/podcast/id984131621&mt=2"><li><i class="fa fa-fw fa-apple"></i> iTunes</li></a>
-                  <a href="http://simplecast.fm/podcasts/1108/rss"><li><i class="fa fa-fw fa-rss"></i> RSS Feed</li></a>
-                  <!-- <a href="#"><li><i class="fa fa-fw fa-soundcloud"></i> Soundcloud</li></a> -->
-                  <!-- <a href="#"><li><i class="fa fa-fw fa-sliders"></i> Stitcher</li></a> -->
-                </ul>
-              </div>
-              <div class="col-md-6">
-                <ul class="where-to-listen">
-                  <a href="https://twitter.com/meteorjsclub"><li><i class="fa fa-fw fa-twitter"></i> Twitter</li></a>
-                  <a href="https://meteorjs.club/"><li><i class="fa fa-fw fa-rocket"></i> Meteor Club</li></a>
-                </ul>
-              </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-12 col-lg-12 host">
+          <div class="row">
+            <div class="col-xs-3 col-sm-4 col-md-4 col-lg-4">
+              <img src="/images/josh.png" alt="">
             </div>
-
-            <!-- about the podcast -->
-            <div class="row">
-              <div class="col-md-12">
-                <h4 style="margin: 40px 0 0 0;">About the Podcast</h4>
-                <p style="margin-top: 10px;">Meteor Club Podcast is a weekly round-table discussion about all things Meteor. Join hosts Josh Owens and Ben Strahan as they speak with guests from around the community. <a href="http://meteorjs.club">Click here</a> to learn more about and to join Meteor Club.</p>
-
-                <div class="podcast-hosts">
-                  <div class="row host">
-                    <div class="col-sm-6 col-md-6 center-block">
-                      <img src="/images/josh.png" alt="Josh Owens">
-                      <h4>Josh Owens</h4>
-                      <a href="http://joshowens.me" class="website">joshowens.me</a>
-                      <a href="http://twitter.com/joshowens"><i class="fa fa-fw fa-twitter"></i></a> <a href="http://stackoverflow.com/users/3027494/josh-owens"><i class="fa fa-fw fa-stack-overflow"></i></a> <a href="https://github.com/queso"><i class="fa fa-fw fa-github"></i></a>
-                    </div>
-                    <div class="col-sm-6 col-md-6 center-block">
-                      <img src="/images/benstr.jpeg" alt="Ben Strahan">
-                      <h4>Ben Strahan</h4>
-                      <a href="https://medium.com/@benstr" class="website">medium.com/@benstr</a>
-                      <a href="http://twitter.com/benstr"><i class="fa fa-fw fa-twitter"></i></a> <a href="http://stackoverflow.com/users/2883366/benstr"><i class="fa fa-fw fa-stack-overflow"></i></a> <a href="https://github.com/benstr"><i class="fa fa-fw fa-github"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div class="col-xs-9 col-sm-8 col-md-8 col-lg-8">
+              <span class="name">Josh Owens</span>
+              <p><a href="http://github.com/queso" target="_blank"><i class="fa fa-github"></i>&nbsp; Find Josh on Github</a><br> <a href="http://github.com/queso" target="_blank"><i class="fa fa-twitter"></i>&nbsp; Follow on Twitter</a></p>
             </div>
+          </div>
+        </div>
 
+        <div class="col-sm-6 col-md-12 col-lg-12 host">
+          <div class="row">
+            <div class="col-xs-3 col-sm-4 col-md-4 col-lg-4">
+              <img src="/images/benstr.jpeg" alt="">
+            </div>
+            <div class="col-xs-9 col-sm-8 col-md-8 col-lg-8">
+              <span class="name">Ben Strahan</span>
+              <p><a href="#" target="_blank"><i class="fa fa-github"></i>&nbsp; Find Ben on Github</a><br> 
+              <a href="http://github.com/queso" target="_blank"><i class="fa fa-twitter"></i>&nbsp; Follow on Twitter</a></p>
+            </div>
           </div>
         </div>
       </div>
-
     </div>
-
-    <!-- older and newer episode pages -->
-    <div class="row">
-      <div class="col-md-12 dark-bar">
-        <a class="older pull-left" href="#"><i class="fa fa-angle-left fa-fw"></i>&nbsp;Older</a>
-
-        <!-- need to hide this on first page of episodes -->
-        <a class="newer pull-right" href="#">Newer <i class="fa fa-angle-right fa-fw"></i></a>
-      </div>
-    </div>
-
   </div>
-
+</div>
 
 </template>
 

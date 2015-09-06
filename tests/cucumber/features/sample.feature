@@ -19,4 +19,4 @@ Feature: One-liner description of this feature
   @dev
   Scenario: This scenario will not both on dev and on CI
     When I navigate to "/"
-    Then I should see the title "A weekly podcast about Meteor.js."
+    Then I should see the title "Crater Podcast"

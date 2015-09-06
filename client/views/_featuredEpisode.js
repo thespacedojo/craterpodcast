@@ -10,3 +10,10 @@ Template.featuredEpisode.events({
     }
   }
 });
+
+Template.featuredEpisode.helpers({
+  latest: function() {
+  	// TODO: add actual value here
+    return true;
+  }
+});

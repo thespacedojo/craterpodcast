@@ -15,6 +15,7 @@ body
   margin 0 0 55px /* bottom = footer height */
   -webkit-font-smoothing antialiased
   text-rendering optimizeLegibility
+  background #f4f4f4
 
 footer, .push
   height 2em
@@ -27,7 +28,10 @@ img
 * * */
 
 a
-  color #547ed3
+  color darken(#6B539C, 10%)
+  
+  &:hover, &:active
+    text-decoration none
 
 .btn
   font-family roboto
@@ -38,6 +42,10 @@ a
   letter-spacing 1px
   -webkit-transition background .2s, color .2s ease-in-out
   transition background .2s, color .2s ease-in-out
+  
+  &.full-width
+    width 100%
+    text-align left
 
   &.push-down
     margin-top 20px !important
@@ -69,19 +77,24 @@ h1
   font-size 32px
   font-weight 700
 
+h3.section-header
+  font-weight 300
+  opacity .6
+  font-size 20px
+  // width 30%
+  padding-bottom 15px
+  margin 10px 0 25px
+  border-bottom 2px solid #ddd
+  
+  &.push
+    margin-top 60px
+
 p
   line-height 1.75
   font-family roboto
   font-size 16px
-  color #555
+  color #666
   margin-top 20px
-
-  &.clean
-    margin 0
-
-  &.small
-    font-size 14px
-    line-height 1.75
 
 ul
   line-height 1.75
@@ -93,171 +106,12 @@ ul
   li
     margin 10px 0
 
-/* * *
-01 HEADER & FOOTER ---------------------------------------------------------
-* * */
-
-.navbar
-  background-color #fff
-  opacity .4
-  font-family roboto
-  text-transform lowercase
-  font-weight 700
-  border-radius 0
-  -moz-border-radius 0
-  -webkit-border-radius 0
-  border none
-  margin-bottom 0
-
-.navbar, .navbar-default
-  min-height 80px
-
-  .navbar-toggle
-    margin-top 22px
-    margin-bottom 25px
-
-  li a
-    color #bbb
-    margin 0 !important
-    padding 8px 20px
-    -webkit-border-radius 20px
-    -moz-border-radius 20px
-    border-radius 20px
-    margin 14px 15px 0 !important
-    font-size 14px
-
-    &:hover
-      // important to override bootstrap styles
-      background-color #f2f2f2 !important
-      -webkit-transition background .1s, color .1s ease-in-out
-      transition background .1s, color .1s ease-in-out
-      color #111
-
-.footer-signup
-    border-top 3px solid #404286
-    position fixed
-    bottom 0
-    width 100%
-    background #fff
-    z-index 1000
-
-    .navbar-form
-      margin 25px 0
-
-  &.footerbutton
-    position  absolute
-    background #404286
-    border-top-right-radius 3px
-    border-top-left-radius 3px
-    top  -42px
-    right 3%
-    font-size 18px
-    font-family roboto
-    color white
-    padding 9px 15px 7px
-    border  none
-    cursor  pointer
-
-  &.slide-content
-    width 100%
-    height 0px
-    background-image url('/images/bg9.jpg')
-    background-position 80% 50%
-    background-repeat no-repeat
-    background-size cover
-    border none
-    font-family roboto
-
-    input[type=name], input[type=email]
-      height 50px
-      margin 3px 10px 0 0
-      font-size 16px
-      border none
-      width 100%
-
-    p
-      color #fff
-      margin-top 35px
-      line-height 1.6
-      font-size 18px
-
-    button
-      width 100%
-      font-weight 500
-      background #404286 !important
-
-    .form-inline
-      margin-top 35px
-
-    /* Small devices (tablets, 768px and up) */
-    @media screen and (min-width: 768px)
-      input[type=name], input[type=email]
-        height 40px
-        margin 3px 5px 0 0
-        font-size 14px
-        border none
-      input[type=name]
-        width 120px
-      input[type=email]
-        width 220px
-      button
-        width 110px
-        height 40px
-        font-size 14px
-      p
-        color #fff
-        line-height 1.3
-        font-size 14px
-
-    /* Medium devices (desktops, 992px and up) */
-    @media screen and (min-width: 992px)
-      input[type=name], input[type=email]
-        height 50px
-        margin 3px 10px 0 0
-        font-size 18px
-        border none
-      input[type=name]
-        width 170px
-      input[type=email]
-        width 260px
-      button
-        width 150px
-        height 50px
-        font-size 18px
-      p
-        line-height 1.6
-        font-size 16px
-
-    /* Large devices (large desktops, 1200px and up) */
-    @media screen and (min-width: 1200px)
-      input[type=name]
-        width 210px
-      input[type=email]
-        width 350px
-      button
-        width 150px
-      p
-        line-height 1.6
-        font-size 18px
-
-.test-width
-  width 200px
-
-  /* Small devices (tablets, 768px and up) */
-  @media screen and (min-width: 768px)
-    width 1000px
-
-.navbar-brand img
-  height 41px
-
 footer
   position absolute
   left 0
   bottom 0
   width 100%
-  background-color #fff
   height 55px
-  bottom 0
 
   p
     font-size 13px
@@ -267,540 +121,381 @@ footer
 01 HOME --------------------------------------------------------------------
 * * */
 
-.podcast-hero
+.hero
   margin 0
-  height 310px
-  background-image url('../images/raw-bg3.jpg')
+  height 330px
+  background-image url('../images/background.png')
   background-size cover
-  background-position 90% 55%
-  padding 50px 0 0
-
-  .container
-    position relative
+  background-position 100% 40%
+  text-align center
+  
+  .screen
+    width 100%
     height 100%
-
-  span.tagline
-    font-style oblique
-    font-family droid
-    color #b0b0b6
-    font-size 16px
-
-    a
-      color white
-      border-bottom 1px solid darken(#b0b0b6, 30%)
-      padding-bottom 1px
-
-      &:hover
-        text-decoration none
-
-    &.two
-      font-style normal
-      margin-top 25px
-      display block
-
-      a
-        border none
-        padding 8px 16px
-        border-radius 3px
-        margin 0 5px
-
+    z-index 1
+    padding 30px 0 0
+    background rgba(15,13,35,.05)
+  
   .pod-logo
     width 130px
     height auto
-
-    /* Small devices (tablets, 768px and up) */
-    @media screen and (min-width: 768px)
-      width 150px
-
-    /* Medium devices (desktops, 992px and up) */
-    @media screen and (min-width: 992px)
-      width 180px
-
+  
+  h1
+    font-size 34px
+    font-weight 300
+    color white
+    line-height 1
+    margin 10px 0 5px
+  
+  .links 
+    display block
+    i
+      color white
+      margin-right 7px
+      font-size 26px
+      opacity .5
+      
+      &:hover
+        opacity .7 
+  
+  h2
+    color white
+    line-height 1.4
+    font-weight 300
+    opacity .75
+    margin 8px 0 3px 0
+    font-size 20px
+  
+  p
+    color darken(white, 25%)
+  
+  &.sub
+    height 70px
+    
+    .links
+      display inline
+      position relative
+      top 5px
+      left 8px
+    
+    a
+      color white
+      text-decoration none
+      &:hover
+        text-decoration none
+    
+    img.logo
+      width 50px
+      margin-left 0
+      margin-top 0
+    
+    h1
+      font-size 24px
+      font-weight 300
+      color white
+      line-height 1.4
+      padding-top 0px
+      margin 0 0 0 5px
+      display inline-block
+      position relative
+      top 3px
+    
+    .screen
+      padding-top 10px
+  
   /* Small devices (tablets, 768px and up) */
   @media screen and (min-width 768px)
-    height 340px
-    padding 55px 0 0
+    height 270px
+    text-align left
+    .screen
+      padding 55px 0 0
+    .pod-logo
+      width 100%
+    h1
+      font-size 38px
+      margin 20px 0 5px
+    h2
+      font-size 30px
+      margin-bottom 8px
+      line-height 1
+    &.sub
+      img.logo
+        margin-left 20px
 
   /* Medium devices (desktops, 992px and up) */
   @media screen and (min-width 992px)
-    height 400px
-    padding 80px 0 0
+    height 280px
+    .screen
+      padding 75px 0 0
+    h1
+      font-size 40px
+      margin 10px 0 5px
 
   /* Large devices (large desktops, 1200px and up) */
   @media screen and (min-width 1200px)
-    height 500px
-    padding 120px 0 0
+    height 300px
+    .screen
+      padding 70px 0 0
+    h1
+      font-size 52px
+      margin 17px 0 5px
 
-  h1
-    font-size 28px
-    color white
+.podcast-player
+  margin-top 10px
+  padding 0px 1px
+  margin-bottom 8px
+  margin-top 25px
+  border-radius 3px
+  width 100%
+    
+  button
+    background transparent
+    border 0
+    border-radius 2px
+    padding 5px
+    font-size 13px
+    -webkit-appearance none
+    min-width 32px
 
-    /* Small devices (tablets, 768px and up) */
-    @media screen and (min-width 768px)
-      font-size 38px
-
-    /* Medium devices (desktops, 992px and up) */
-    @media screen and (min-width 992px)
-      font-size 40px
-
-    /* Large devices (large desktops, 1200px and up) */
-    @media screen and (min-width 1200px)
-      font-size 48px
-
-  p
-    color darken(white, 25%)
-
-  .sub-form
-    margin 0
-
-    /* Large devices (large desktops, 1200px and up) */
-    @media screen and (min-width 1200px)
-      margin 20px 0
-
-  &.small
-    height 100px
-    padding 16px 0
-    margin 0
-
-    .pod-logo
-      width 100px
-      height auto
-
-      /* Medium devices (desktops, 992px and up) */
-      @media screen and (min-width: 992px)
-        width 140px
-
-.latest-episode
-  color white
-  opacity .7
-  font-size 13px
-  text-transform uppercase
-  letter-spacing 1px
-  margin-top 17px
-
-.podcast-play
-  background-color #0f0e23
-  color white
-  height 80px
-  padding 0 !important
-
-  &.affix
-    position static
-
-    /* Medium devices (desktops, 992px and up) */
-    @media screen and (min-width: 992px)
-      display block
-      z-index 1111111
-      position fixed
-      top 0
-      left 0
-      right 0
-
-  h1,h2,h3,h4,h5,h6,p
-    margin 0
-
-  .podcast-player button
-    background: transparent
-    color: #fff
-    border: 0
-    border-radius: 2px
-    padding: 5px
-    font-size: 13px
-    -webkit-appearance: none
-    min-width: 32px
-
-  .episode-info
-    padding 0px 1px
-    margin-bottom 8px
-    margin-top 22px
-    border-radius 3px
-    width: 100%;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-
-
-    audio
-      width: 100%;
-      max-width: 800px;
-      margin: auto;
-      display: block;
-
-    span
-      font-size 10px
-
-    /* Small devices (tablets, 768px and up) */
-    @media screen and (min-width: 768px)
-      span
-        font-size 13px
-
-  .progress-bar
-    background-color #565564
-    border-radius 20px 20px 20px 20px
-    overflow hidden
+  audio
     width 100%
-    height 8px
-    -webkit-box-shadow 0 1px 1px 0 rgba(0,0,0,0.2) inset
-    box-shadow 0 1px 1px 0 rgba(0,0,0,0.2) inset
+    float left
+    max-width 800px
+    
+    // everything over 768px (tablet screens)
+    @media handheld, screen and (min-width: 768px)
+      width 95%
+    
+    // everything over 992px (medium screens)
+    @media handheld, screen and (min-width: 992px)
+      width 94%
+    
+    // everything over 1200px (large screens)
+    @media handheld, screen and (min-width: 1200px)
+      width 95%
 
-    /* Small devices (tablets, 768px and up) */
-    @media screen and (min-width: 768px)
-      width 100%
-
-    /* Medium devices (desktops, 992px and up) */
-    @media screen and (min-width: 992px)
-      width 100%
-
-    /* Large devices (large desktops, 1200px and up) */
-    @media screen and (min-width: 1200px)
-      width 100%
-
-  span.play
-    font-size 19px
-    margin-top 25px
-    padding 0
-    display inline
-    color white
-
-    /* Small devices (tablets, 768px and up) */
-    @media screen and (min-width: 768px)
-      font-size 32px
-      margin-top 15px
-
-    &:hover
-      cursor pointer
-
-  span.option
-    font-size 14px
-    font-weight 500
-    letter-spacing 1px
-    text-transform uppercase
-    background-color red
-    margin 0 !important
-    padding 30px 20px
-    display block
-    transition background .2s, color .2s ease-in-out
-
-    &:hover
-      background #0f0e23
-      color white
-      cursor pointer
-      transition background .2s, color .2s ease-in-out
-
-.featured-area
-  background #e9e8ef
-  height auto
-  padding-bottom 220px
-
-  /* Small devices (tablets, 768px and up) */
-  @media screen and (min-width: 768px)
-    height auto
-    padding-bottom 210px
-
-  /* Medium devices (desktops, 992px and up) */
-  @media screen and (min-width: 992px)
-    // height 645px
-    height auto
-    padding-bottom 210px
-
-.spotlight-details
-  padding-top 50px
-  padding-bottom 40px
+.spotlight-details  
   display block
-
-  /* Small devices (tablets, 768px and up) */
-  @media screen and (min-width: 768px)
-    padding-top 70px
-    padding-bottom 60px
-
-  /* Medium devices (desktops, 992px and up) */
-  @media screen and (min-width: 992px)
-    padding-top 70px
-    padding-bottom 60px
+  background #fff
+  padding 0px 10px 20px
+  
+  .col-lg-8
+    margin-top 30px
 
   h3
-    margin 7px 0
-    font-size 20px
-
-    /* Small devices (tablets, 768px and up) */
-    @media screen and (min-width: 768px)
-      font-size 28px
+    margin 20px 0 10px
+    font-size 28px
+    font-weight 300
 
   p
     margin 0
     font-size 14px
-    /* Small devices (tablets, 768px and up) */
-    @media screen and (min-width: 768px)
-      font-size 16px
-
+    color #999
+    
   .secondary-ctas
     color #888
     a
       color #333
       &:hover
         color #777
-
+  
+  /* Small devices (tablets, 768px and up) */
+  @media screen and (min-width: 768px)   
+    padding 0 40px 50px
+    h3
+      font-size 36px
+    p
+      font-size 20px
+      line-height 1.5
+      padding-right 20px
+      
+    .col-lg-8
+      margin-top 60px
+  
+  .actions
+    
+    ul
+      list-style-type none
+      margin 60px 0 0 0
+      padding 0
+      border-top 10px solid #6B539C
+      
+      li
+        border-bottom 1px solid #ddd
+        padding 15px 23px
+        margin 0
+        letter-spacing .35
+        
+        &.play
+          background #6B539C
+          font-size 20px
+          border none
+          border-radius 1px
+          padding 25px 20px
+          color white
+          i
+            opacity .5
+            margin 0 4px 0 5px     
+          &:hover
+            text-decoration none
+        
+        &.norm
+            margin-top 20px
+        
+        a
+          color darken(#6B539C, 10%)
+          &:hover
+            text-decoration none
+            opacity .7
+        
+        &:last-child
+          border none
+          
+  span.latest
+    background darken(#eee, 2%)
+    color #6B539C
+    letter-spacing .35
+    padding 8px 15px
+    border-radius 1px
+    font-size 16px
+    margin 0 10px 10px 0
+    display none
+          
   span.date
-    font-style oblique
-    font-family droid
     color darken(#b0b0b6, 20%)
     font-size 16px
+  
+  // everything over 768px (tablet screens)
+  @media handheld, screen and (min-width: 768px)
+    .actions
+      ul
+        margin-top 0
 
-  .btn-subtle
-    background none
-    color darken(#b0b0b6, 20%)
-    margin 0 !important
+    span.latest
+      display inline-block
 
-    &:hover
-      color darken(#b0b0b6, 65%)
-      background none
-
-  .transcript
-    margin 20px 0
-
-  #play-episode
-    /* Small devices (tablets, 768px and up) */
-    @media screen and (max-width: 768px)
-      width 100%
-      font-size 20px
-      padding 15px
-
-  ul.mobile-options
-    text-align left
-    list-style-type none
+.main
+  margin-bottom 80px
+  margin-top 60px
+  &.small
+    margin-top 15px
+  
+  .load-more
+    margin-bottom 10px
+  
+  // everything over 768px (tablet screens)
+  @media handheld, screen and (min-width: 768px)
+    margin-bottom 150px
+    
+    .load-more
+      margin-bottom 100px
+  
+  // everything over 992px (medium screens)
+  @media handheld, screen and (min-width: 992px)
+    .load-more
+      margin-bottom 0
+    
+.single-episode
+  display block
+  background #fff
+  padding 25px
+  margin-bottom 20px
+  
+  span
+    display block
+  
+  span.episode-title
+    margin 5px 0 5px
+    font-size 26px
+    font-weight 300
+    color #6B539C
+    a
+      color #6B539C
+      &:hover
+        opacity .7
+        text-decoration none
+  
+  // everything over 768px (tablet screens)
+  @media handheld, screen and (min-width: 768px)
+    padding 40px
+    
+    span.episode-title
+      font-size 28px
+  
+  span.episode-description
     margin 0
     font-size 14px
-
-    a
-      color blue
-
-    li
-      border-bottom 1px solid #ccc !important
-      padding-bottom 10px
-
-      &:last-child
-        border none
-
-.info-panel
-  border-radius 0px
-  color white
-  padding 15px 35px 15px
-  border-right 1px solid #0f0e23
-
-  a
-    color white
-
-  h4
-    margin 20px 0 0
-    padding 0
-
-  p
-    color #b5b2ba
-    margin 0
-
-  .where-to-listen
-    margin 20px 0 0
-    padding 0
-
-    a
-      text-decoration none
-      &:hover
+    color #999
+    
+    a.listen
+      padding-bottom 2px
+      border-bottom 1px solid #eee
+      color #6B539C
+      
+      &:hover, &:active
         text-decoration none
-
-    li
-      display block
-      background lighten(#a9acc9, 35%)
-      padding 6px 12px
-      border-radius 3px
-      color #2e3e5e
+    /* Small devices (tablets, 768px and up) */
+    @media screen and (min-width: 768px)
       font-size 16px
-      transition background .2s ease-in-out
+      line-height 1.5
+      padding-right 20px
+  span.episode-date
+    color darken(#b0b0b6, 20%)
+    font-size 16px
+  
+  .play
+     text-align right
+    
+    i.fa-play
+      font-size 90px
+      opacity .1
+      text-align right
+      margin-top 10px
 
-      &:hover
-        background lighten(#a9acc9, 75%)
-        transition background .2s ease-in-out
+.sidebar
+  margin-top 60px
+  // everything over 768px (tablet screens)
+  @media handheld, screen and (min-width: 768px)
+    margin-top 0
+    
+.host
+  margin-top 40px
+  margin-bottom 30px
+  z-index 2500
+  
+  &:last-child
+    margin-bottom 0
+  
+  span.name
+    font-size 14px
+    font-weight 800
+    display block
+    margin-top 3px
+  
+  p
+    font-size 14px
+    margin-top 0
+    line-height 1.5
 
+  img
+    border-radius 50%
+    width 100%
 
-  .podcast-hosts
-    padding 20px 0 40px
-    margin 30px 0
+  i
+    font-size 16px
+    margin 5px 5px 0 0
+    opacity .6
 
-    .host
-      margin-top 20px
-
-      img
-        border-radius 50%
-        width 80%
-
-      i
-        font-size 16px
-        margin 5px 5px 0 0
-        opacity .6
-
-      .website
-        display block
-        font-size 12px
-        margin-top 5px
-
-
-.episode-list
-  margin-top -217px
-
-  /* Medium devices (desktops, 992px and up) */
-  @media screen and (min-width: 992px)
-    margin-top -213px
-
-.episode-archive-list
-  background #f2f2f2
-  border-left 1px solid #0f0e23
-  position relative
-
-.episode-archive-list .absolute-background
-  display:block;
-  position:absolute;
-  top:0;
-  right:0;
-  bottom:0;
-  background: url("/images/raw-bg9.jpg");
-  background-size: cover;
-
-.episode-archive
-  margin 0
-
-  a:hover
-    text-decoration none
-
-  .episode
-    padding 24px 15px
-    transition background .2s
-    position relative
-    border-bottom 1px solid #ddd
-    border-right 1px solid #0f0e23
-    border-top none
-    height auto
-
-    a
-      color #333
-
-    /* Medium devices (desktops, 992px and up) */
-    @media screen and (min-width: 992px)
-      border-right 1px solid #fff
-
-    &:hover
-      background #ddd
-      transition background .2s ease-in-out
-      cursor pointer
-
-      span.episode-title
-        color lighten(#2e273d, 20%)
-        transition color .2s
-
-    span.episode-title, span.episode-description
-      margin-top 0
-
-    span.episode-date
-      color #333
-      opacity .5
-      margin 0 0 3px 0
-      display block
-      font-size 15px
-
-    span.episode-title
-      font-size 22px
-      margin 5px 0 3px 0
-      display block
-      color #3a3b47
-      transition color .2s
-      font-weight 500
-
-    span.episode-description
-      line-height 1.6
-      font-family roboto
-      font-size 14px
-      color #555
-
-      /* Medium devices (desktops, 992px and up) */
-      @media screen and (min-width: 992px)
-        font-size 14px
-
-      /* Large devices (large desktops, 1200px and up) */
-      @media screen and (min-width: 1200px)
-        font-size 16px
-
-.dark-bar
-  padding 15px 25px !important
-  margin 0
-  border-radius 0
-  text-transform uppercase
-  font-size 14px
-  background #0f0e23
-  color white
-  font-weight 500
-  letter-spacing 1px
-  min-height 50px
-
-  border-bottom-left-radius 0px
-  border-bottom-right-radius 0px
-
-  /* Small devices (tablets, 768px and up) */
-  @media screen and (min-width: 768px)
-    border-bottom-left-radius 3px
-    border-bottom-right-radius 3px
-
-  a
-    color white
-
-    &:hover
-      opacity .7
-
-  &.two
-    color white
-    // background #666
-    background #0f0e23
-    padding 18px 30px 15px !important
-    border-top-left-radius 0px
-    border-top-right-radius 0px
-    border-bottom-left-radius 0px
-    border-bottom-right-radius 0px
-
-    span.more
-      opacity .85
-
-    /* Small devices (tablets, 768px and up) */
-    @media screen and (min-width: 768px)
-      border-top-left-radius 3px
-      border-top-right-radius 3px
-
-
-  .podcast-social
-    display inline
-    color white
-    letter-spacing 1px
-    font-weight 500
+  .website
+    display block
     font-size 12px
-    position relative
-    bottom 2px
-    margin 0 auto
-
-    /* Small devices (tablets, 768px and up) */
-    @media screen and (min-width: 768px)
-      font-size 14px
-      margin auto
-      float right
-
-    li
-      display inline
-
-      a
-        color white
-        opacity 1
-
-        &:hover
-          opacity .7
-
-  a
-    &:hover
-      text-decoration none
+    margin-top 5px
+    
+  // everything over 768px (tablet screens)
+  @media handheld, screen and (min-width: 768px)
+    span.name
+      margin-top 13px
+    margin-bottom 0
 
 
 #transcript-modal
