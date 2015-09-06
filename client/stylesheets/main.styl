@@ -59,6 +59,26 @@ a
       background-color darken(#a685bd, 40%)
       -webkit-transition background .2s, color .2s ease-in-out
       transition background .2s, color .2s ease-in-out
+  
+  &.twitter
+    background #50ABF1
+    border 0
+    color white
+    letter-spacing 0
+    text-transform none
+    
+    &:hover
+      background darken(#50ABF1, 10%)
+  
+  &.facebook
+    background #395597
+    border 0
+    color white
+    letter-spacing 0
+    text-transform none
+    
+    &:hover
+      background darken(#395597, 10%)
 
 h1,
 h2,
@@ -383,12 +403,24 @@ footer
   .load-more
     margin-bottom 10px
   
+  .share
+    margin-top 30px
+    
+    .twitter
+      margin-bottom 10px
+  
   // everything over 768px (tablet screens)
   @media handheld, screen and (min-width: 768px)
     margin-bottom 150px
     
     .load-more
       margin-bottom 100px
+    
+    .share
+      margin-top 28px
+      
+      .btn
+        margin-left 15px
   
   // everything over 992px (medium screens)
   @media handheld, screen and (min-width: 992px)
