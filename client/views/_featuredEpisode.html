@@ -6,7 +6,7 @@
           {{#if latest}}<span class="latest">Latest Episode</span>{{/if}}
           <span class="date">{{prettyDate}}</span>
           <h3>{{title}}</h3>
-          <p>{{description}}</p>
+          {{#markdown}}{{showNotes}}{{/markdown}}
 
           <div class="podcast-player">
             <button class="pcast-speed hidden-xs">1x</button>

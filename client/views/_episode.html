@@ -1,16 +1,16 @@
 <template name="episode">
 <div class="row">
-	<div class="col-lg-12">
-		<span class="episode-date">{{prettyDate}}</span> 
+  <div class="col-lg-12">
+    <span class="episode-date">{{prettyDate}}</span>
 
-		<!-- TODO: these two links -->
-	    <span class="episode-title">
-	    	<a href="{{pathFor 'single'}}">{{title}}</a>
-	    </span>
-	    <span class="episode-description">
-	    	{{createExcerpt description 125}} 
-	    	<a href="{{pathFor 'single'}}" class="listen">Listen Now</a>
-	    </span>
-	</div>
+    <!-- TODO: these two links -->
+      <span class="episode-title">
+        <a href="{{pathFor 'single'}}">{{title}}</a>
+      </span>
+      <span class="episode-description">
+        {{#markdown}}{{showNotes}}{{/markdown}}
+        <a href="{{pathFor 'single'}}" class="listen">Listen Now</a>
+      </span>
+  </div>
 </div>
 </template>

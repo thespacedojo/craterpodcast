@@ -4,7 +4,7 @@ Template.single.helpers
 
 Template.single.onRendered ->
   # set the seeded
-  Session.set "spotlightID", Episodes.findOne({}, {sort: {date: -1}})._id
+  Session.set "spotlightID", Episodes.findOne({slug: Router.current().params["slug"]}, {sort: {date: -1}})._id
 
   # set dragging variable
   Session.set "dragging", false
