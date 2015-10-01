@@ -37,7 +37,7 @@ Meteor.methods({
 
   fetchRss: function() {
     feed = Feeds.findOne();
-    feedContent = HTTP.get("http://simplecast.fm/podcasts/1405/rss").content;
+    feedContent = HTTP.get("http://simplecast.fm/podcasts/1405/rss").content.replace('http://simplecast.fm/podcasts/1405/rss', 'http://podcast.creater.io/feed');
     if (feed) {
       Feeds.update(feed._id, {$set: {content: feedContent}});
     } else {
