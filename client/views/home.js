@@ -20,11 +20,11 @@ Template.home.helpers({
 });
 
 Template.home.onRendered(function() {
-  Session.set("spotlightID", Episodes.findOne({}, {
-    sort: {
-      date: -1
-    }
-  })._id);
+  Tracker.autorun(function() {
+    episode = Episodes.findOne({}, {sort: {date: -1}})
+    if (episode)
+      Session.set("spotlightID", episode._id);
+  });
   Session.set("dragging", false);
   $(".podcast-play").affix({
     offset: {
