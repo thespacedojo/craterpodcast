@@ -1,5 +1,6 @@
-Meteor.publish('episodes', function() {
-  return Episodes.find({}, {sort: {date: -1}});
+Meteor.publish('episodes', function(limit) {
+  check(limit, Match.Integer);
+  return Episodes.find({}, {sort: {date: -1}, limit: limit});
 });
 
 Meteor.publish('episode', function(slug) {
