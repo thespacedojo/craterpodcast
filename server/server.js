@@ -21,7 +21,6 @@ Meteor.methods({
     var episodes = Meteor.call('getEpisodes', podcastId);
 
     _.each(episodes, function(episode) {
-
       Episodes.upsert({episodeId: episode.id}, {$set: {
         episodeId: episode.id,
         title: episode.title,
@@ -34,6 +33,16 @@ Meteor.methods({
         guid: episode.guid
       }});
     });
+  },
+
+  fetchRss: function() {
+    feed = Feeds.findOne();
+    feedContent = HTTP.get("http://simplecast.fm/podcasts/1405/rss").content;
+    if (feed) {
+      Feeds.update(feed._id, {$set: {content: feedContent}});
+    } else {
+      Feeds.insert({content: feedContent});
+    }
   }
 });
 
@@ -42,12 +51,15 @@ Meteor.methods({
 //
 
 Meteor.startup(function () {
-  Meteor.call('fetchAndInsertEpisodes');
+  Meteor.setTimeout(function() {
+    Meteor.call('fetchAndInsertEpisodes');
+    Meteor.call('fetchRss');
+  }, 3000);
 
   SyncedCron.add({
     name: 'Check for new episodes',
     schedule: function(parser) { return parser.text('every 1 hour'); },
-    job: function() { Meteor.call('fetchAndInsertEpisodes'); }
+    job: function() { Meteor.call('fetchAndInsertEpisodes'); Meteor.call('fetchRss');}
   });
 
   SyncedCron.start();
