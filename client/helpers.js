@@ -14,5 +14,5 @@ Template.registerHelper('prettyDate', function() {
 
 Template.registerHelper('iTunesLink', function() {
   //TODO: don't hard code this link?
-  return "https://itunes.apple.com/us/podcast/meteor-club-podcast/id984131621?mt=2"
+  return "https://itunes.apple.com/us/podcast/the-meteor-podcast/id795089333?mt=2"
 });
