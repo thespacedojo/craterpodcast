@@ -5,11 +5,11 @@
 
     <!-- TODO: these two links -->
       <span class="episode-title">
-        <a href="{{pathFor 'single'}}">{{title}}</a>
+        <a href="/{{slug}}">{{title}}</a>
       </span>
       <span class="episode-description">
         {{#markdown}}{{showNotes}}{{/markdown}}
-        <a href="{{pathFor 'single'}}" class="listen">Listen Now</a>
+        <a href="/{{slug}}" class="listen">Listen Now</a>
       </span>
   </div>
 </div>

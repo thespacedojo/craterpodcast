@@ -1,6 +1,13 @@
 Template.single.helpers
   featured: ->
     Episodes.findOne(Session.get('spotlightID'))
+  episode: ->
+    Episodes.findOne({slug: @slug})
+
+
+Template.single.onCreated ->
+  @slug = FlowRouter.getParam("slug")
+  @subscribe('episode', @slug)
 
 Template.single.onRendered ->
   # set the seeded
